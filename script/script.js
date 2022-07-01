@@ -138,13 +138,14 @@
                         <td>${e.Bedroom}</td>
                         <td>${e.bathroom}</td>
                         <td>${e.parking}</td>
-                        <td><button class="btn"><i class="bi bi-gear"></i></button></td>
+                        <td><button class="btn"><i class="bi bi-gear" onclick="edit(${e.id})"></i></button></td>
                         <td><button class="btn"><i class="bi bi-trash3" onclick="remove(${e.id})"></i></button></td>
                         </tr>
         `
         });
     }
 
+// delete listing
     initiate(newPlots);
     function remove(id){
         newPlots.splice(id-1,1);
@@ -153,7 +154,12 @@
         })
         initiate(newPlots);
     }
-    
+//  edit listing
+    function editnewPlots(id) {
+        let house = newPlots.find(newPlots) => house.id === id);
+        let input = prompt("Input Changes")
+        newPlots.title = input;
+    }
 
     function filteredType(e) {
         const Type = e.target.value;
@@ -205,16 +211,3 @@
     }
 
     // add listing
-
-    // function addListing() {
-    //     let listing = {
-    //         id: houses.length + 1,
-    //         img: document.querySelector("#Title").value,
-    //         area: document.querySelector("#Title").value,
-    //         type: document.querySelector("#Title").value,
-    //         price: document.querySelector("#Title").value,
-    //         bedrooms: document.querySelector("#Title").value,
-    //         bathrooms: document.querySelector("#Title").value,
-    //         garage: document.querySelector("#Title").value,
-    //     }
-    // }
